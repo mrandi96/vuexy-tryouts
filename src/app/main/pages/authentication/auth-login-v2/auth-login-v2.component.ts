@@ -89,14 +89,20 @@ export class AuthLoginV2Component implements OnInit {
       .login(this.f.email.value, this.f.password.value)
       .pipe(first())
       .subscribe(
-        data => {
-          this._router.navigate([this.returnUrl]);
+        response => {
+          if (response.success) {
+            console.log(response.success)
+            this._router.navigate([this.returnUrl]);
+          } else {
+            this.error = "Invalid Credential!";
+            this.loading = false;
+          }
         },
         error => {
-          this.error = error;
+          this.error = 'Something is wrong with the internal server. Please contact the administrator.';
           this.loading = false;
-        }
-      );
+        },
+    );
   }
 
   // Lifecycle Hooks

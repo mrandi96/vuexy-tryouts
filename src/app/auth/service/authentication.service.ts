@@ -46,29 +46,30 @@ export class AuthenticationService {
   /**
    * User login
    *
-   * @param email
+   * @param username
    * @param password
    * @returns user
    */
-  login(email: string, password: string) {
+  login(username: string, password: string) {
     return this._http
-      .post<any>(`/api/user/authenticate`, { username: email, password })
+      .post<any>(`/api/user/authenticate`, { username, password })
       .pipe(
-        map(user => {
+        map(response => {
           // login successful if there's a jwt token in the response
-          if (user && user.token) {
+          if (response.success && response.token) {
             // store user details and jwt token in local storage to keep user logged in between page refreshes
-            const { user: payload } = user;
+            const { user: payload } = response;
             const { id, email, name, isAdmin = false } = payload;
             const [firstName, lastName = ''] = name.split(' ');
-            user = {
+            const user = {
               id,
               email,
+              password: 'This is just a placeholder',
               firstName,
               lastName,
-              avatar: "avatar-s-11.jpg",
-              role: isAdmin ? "Admin" : "Client",
-              token: user.token
+              avatar: "avatar-s-10.jpg",
+              role: isAdmin ? Role.Admin : Role.Client,
+              token: response.token
             }
             localStorage.setItem('currentUser', JSON.stringify(user));
 
@@ -87,7 +88,7 @@ export class AuthenticationService {
             this.currentUserSubject.next(user);
           }
 
-          return user;
+          return response;
         })
       );
   }
