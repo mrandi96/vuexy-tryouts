@@ -1,0 +1,89 @@
+{
+
+    "/api/user/*": {
+      "_comment": "ms-login-ad",
+      "target": "http://apphemprd01.corp.bankbtpn.co.id",
+      "secure": false,
+      "loglevel": "debug"
+    },
+    "/api/apps/*": {
+      "_comment": "ms-apps-management",
+      "target": "http://apphemprd01.corp.bankbtpn.co.id/",
+      "secure": false,
+      "loglevel": "debug"
+    },
+    "/api/escalation/*": {
+      "_comment": "ms-escalation-matrix",
+      "target": "http://apphemprd01.corp.bankbtpn.co.id/",
+      "secure": false,
+      "loglevel": "debug"
+    },
+    "/api/indices/*": {
+      "_comment": "ms-indices",
+      "target": "http://apphemprd01.corp.bankbtpn.co.id/",
+      "secure": false,
+      "loglevel": "debug"
+    },
+    "/api/incident/*": {
+      "_comment": "ms-incident-detail",
+      "target": "http://apphemprd01.corp.bankbtpn.co.id/",
+      "secure": false,
+      "loglevel": "debug"
+    },
+    "/api/incidentdetail/*": {
+      "_comment": "ms-incident-detail",
+      "target": "http://apphemprd01.corp.bankbtpn.co.id/",
+      "secure": false,
+      "loglevel": "debug"
+    },
+    "/api/register/*": {
+      "_comment": "ms-register-ad",
+      "target": "http://apphemprd01.corp.bankbtpn.co.id",
+      "secure": false,
+      "loglevel": "debug"
+    },
+    "/api/usermanagement/*": {
+      "_comment": "ms-user-management",
+      "target": "http://apphemprd01.corp.bankbtpn.co.id",
+      "secure": false,
+      "loglevel": "debug"
+    },
+    "/api/system/*": {
+      "_comment": "ms-management-system",
+      "target": "http://apphemprd01.corp.bankbtpn.co.id",
+      "secure": false,
+      "loglevel": "debug"
+    },
+    "/api/analyze/*": {
+      "_comment": "ms-analyzing-alerts",
+      "target": "http://apphemprd01.corp.bankbtpn.co.id",
+      "secure": false,
+      "loglevel": "debug"
+    },
+    "/api/badge/getBadge/*": {
+      "_comment": "ms-analyzing-alerts",
+      "target": "http://apphemprd01.corp.bankbtpn.co.id",
+      "secure": false,
+      "loglevel": "debug"
+    },
+    "/api/managewiki/*": {
+      "_comment": "ms-wiki",
+      "target": "http://apphemprd01.corp.bankbtpn.co.id",
+      "secure": false,
+      "loglevel": "debug"
+    },
+    "/api/eod/*": {
+      "_comment": "ms-endoffday",
+      "target": "http://apphemprd01.corp.bankbtpn.co.id",
+      "secure": false,
+      "loglevel": "debug"
+    },
+    "/api/snow/v1/*": {
+      "_comment": "ms-service-now",
+      "target": "http://apphemprd01.corp.bankbtpn.co.id",
+      "secure": false,
+      "loglevel": "debug"
+    }
+  
+  }
+  

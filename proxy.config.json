@@ -1,0 +1,94 @@
+{
+
+  "/api/user/*": {
+    "_comment": "ms-login-ad",
+    "target": "http://localhost:3003",
+    "secure": false,
+    "loglevel": "debug"
+  },
+  "/api/apps/*": {
+    "_comment": "ms-apps-management",
+    "target": "http://localhost:3006/",
+    "secure": false,
+    "loglevel": "debug"
+  },
+  "/api/escalation/*": {
+    "_comment": "ms-escalation-matrix",
+    "target": "http://localhost:3005/",
+    "secure": false,
+    "loglevel": "debug"
+  },
+  "/api/indices/*": {
+    "_comment": "ms-indices",
+    "target": "http://localhost:3008/",
+    "secure": false,
+    "loglevel": "debug"
+  },
+  "/api/incident/*": {
+    "_comment": "ms-incident-detail",
+    "target": "http://localhost:3010/",
+    "secure": false,
+    "loglevel": "debug"
+  },
+  "/api/incidentdetail/*": {
+    "_comment": "ms-incident-detail",
+    "target": "http://localhost:3010/",
+    "secure": false,
+    "loglevel": "debug"
+  },
+  "/api/register/*": {
+    "_comment": "ms-register-ad",
+    "target": "http://localhost:3000",
+    "secure": false,
+    "loglevel": "debug"
+  },
+  "/api/usermanagement/*": {
+    "_comment": "ms-user-management",
+    "target": "http://localhost:3001",
+    "secure": false,
+    "loglevel": "debug"
+  },
+  "/api/system/*": {
+    "_comment": "ms-management-system",
+    "target": "http://localhost:3011",
+    "secure": false,
+    "loglevel": "debug"
+  },
+  "/api/analyze/*": {
+    "_comment": "ms-analyzing-alerts",
+    "target": "http://localhost:3013",
+    "secure": false,
+    "loglevel": "debug"
+  },
+  "/api/badge/getBadge/*": {
+    "_comment": "ms-analyzing-alerts",
+    "target": "http://localhost:3013",
+    "secure": false,
+    "loglevel": "debug"
+  },
+  "/api/managewiki/*": {
+    "_comment": "ms-wiki",
+    "target": "http://localhost:3014",
+    "secure": false,
+    "loglevel": "debug"
+  },
+  "/api/eod/*": {
+    "_comment": "ms-endoffday",
+    "target": "http://localhost:3015",
+    "secure": false,
+    "loglevel": "debug"
+  },
+  "/api/snow/v1/*": {
+    "_comment": "ms-service-now",
+    "target": "http://localhost:3018",
+    "secure": false,
+    "loglevel": "debug"
+  },
+  "/api/socket/*": {
+    "_comment": "socket-io-server",
+    "target": "http://localhost:3021",
+    "secure": false,
+    "loglevel": "debug"
+  }
+
+}
