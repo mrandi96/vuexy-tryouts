@@ -1,6 +1,6 @@
 {
   "name": "heimdall-admin-template",
-  "version": "8.0.0",
+  "version": "0.0.0",
   "scripts": {
     "ng": "ng",
     "start": "set NODE_OPTIONS=--max_old_space_size=8192 & ng serve --open",
@@ -73,9 +73,9 @@
     "nouislider": "15.1.1",
     "plyr": "3.6.8",
     "quill": "1.3.7",
+    "rxjs": "6.6.0",
     "sweetalert2": "9.17.2",
     "swiper": "6.7.0",
-    "rxjs": "6.6.0",
     "tslib": "2.2.0",
     "zone.js": "0.11.4"
   },
@@ -87,8 +87,8 @@
     "@angularclass/hmr": "3.0.0",
     "@types/jasmine": "3.6.3",
     "@types/node": "12.11.1",
+    "codelyzer": "^6.0.1",
     "jasmine-core": "3.7.0",
-    "codelyzer": "6.0.1",
     "karma": "6.3.0",
     "karma-chrome-launcher": "3.1.0",
     "karma-coverage": "2.0.3",

@@ -72,6 +72,7 @@ export class AuthenticationService {
               token: response.token
             }
             localStorage.setItem('currentUser', JSON.stringify(user));
+            localStorage.setItem('id_token', response.token);
 
             // Display welcome toast!
             setTimeout(() => {

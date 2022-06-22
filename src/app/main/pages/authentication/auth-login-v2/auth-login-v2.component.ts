@@ -91,7 +91,6 @@ export class AuthLoginV2Component implements OnInit {
       .subscribe(
         response => {
           if (response.success) {
-            console.log(response.success)
             this._router.navigate([this.returnUrl]);
           } else {
             this.error = "Invalid Credential!";
