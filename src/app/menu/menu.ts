@@ -37,6 +37,31 @@ export const menu: CoreMenu[] = [
       }
     ]
   },
+  // Management
+  {
+    id: 'management',
+    title: 'Management',
+    // translate: 'MENU.DASHBOARD.COLLAPSIBLE',
+    type: 'collapsible',
+    role: ['Admin'], //? To hide collapsible based on user role
+    icon: 'command',
+    badge: {
+      title: '1',
+      // translate: 'MENU.DASHBOARD.BADGE',
+      classes: 'badge-light-warning badge-pill'
+    },
+    children: [
+      {
+        id: 'applications',
+        title: 'Applications',
+        // translate: 'MENU.DASHBOARD.ANALYTICS',
+        type: 'item',
+        role: ['Admin'], //? To set multiple role: ['Admin', 'Client']
+        icon: 'circle',
+        url: 'management/applications'
+      },
+    ]
+  },
   // Apps & Pages
   {
     id: 'apps',
