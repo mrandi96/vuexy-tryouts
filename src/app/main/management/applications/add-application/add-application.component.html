@@ -1,0 +1,35 @@
+<div class="modal-header">
+  <h4 class="modal-title" id="myModalLabel1">Applications Bracket</h4>
+  <button type="button" class="close" (click)="activeModal.close('Close click')" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body" tabindex="0" ngbAutofocus>
+  <form action="#">
+    <label>APPLICATIONS NAME </label>
+    <div class="form-group">
+      <ng-select
+        [items]="appsList"
+        bindLabel="name"
+        placeholder="Choose an application"
+      >
+      </ng-select>
+    </div>
+    <label>CATEGORY</label>
+    <div class="form-group">
+      <select class="form-control" id="category">
+        <option value="" selected disabled>Choose a Category</option>
+        <option *ngFor="let category of categories" [ngValue]="category.name">
+          {{ category.value }}
+        </option>
+      </select>
+    </div>
+  </form>
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-primary" rippleEffect>
+    <i data-feather="check-square" class="mr-0 mr-sm-0"></i>
+    Save
+  </button>
+</div>
+<!-- / Modal -->
