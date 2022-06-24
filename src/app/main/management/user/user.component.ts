@@ -23,9 +23,15 @@ export class UserComponent implements OnInit{
     public ColumnMode = ColumnMode;
     public kitchenSinkRows: any;
     public rows: any;
+    public enableEdit = {};
 
     @ViewChild(DatatableComponent) table: DatatableComponent;
     @ViewChild('tableRowDetails') tableRowDetails: any;
+
+    enableEditMethod(i) {
+        this.enableEdit[i] = true;
+        this.kitchenSinkRows = [...this.kitchenSinkRows];
+      }
   
     addUser() {
         this.modalService.open(AddUserComponent, {
