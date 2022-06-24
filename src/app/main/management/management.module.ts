@@ -18,6 +18,8 @@ import { ApplicationsService } from 'app/services/applications.service';
 
 import { ApplicationsComponent } from 'app/main/management/applications/applications.component';
 import { AddApplicationComponent } from './applications/add-application/add-application.component';
+import { AddUserComponent } from './user/add-user/add-user.component';
+import { UserComponent } from './user/user.component';
 
 const routes: Routes = [
   {
@@ -29,10 +31,20 @@ const routes: Routes = [
       css: ApplicationsService
     }
   },
+
+  {
+    path: 'user',
+    component: UserComponent,
+    canActivate: [AuthGuard],
+    data: { roles: [Role.Admin], animation: 'duser' },
+    resolve: {
+      css: ApplicationsService
+    }
+  }
 ];
 
 @NgModule({
-  declarations: [ApplicationsComponent, AddApplicationComponent],
+  declarations: [ApplicationsComponent, AddApplicationComponent, UserComponent, AddUserComponent],
   imports: [
     CommonModule,
     RouterModule.forChild(routes),

@@ -50,6 +50,7 @@ export const menu: CoreMenu[] = [
       // translate: 'MENU.DASHBOARD.BADGE',
       classes: 'badge-light-warning badge-pill'
     },
+
     children: [
       {
         id: 'applications',
@@ -60,6 +61,16 @@ export const menu: CoreMenu[] = [
         icon: 'circle',
         url: 'management/applications'
       },
+
+      {
+        id: 'user',
+        title: 'User Monitoring',
+        // translate: 'MENU.DASHBOARD.ANALYTICS',
+        type: 'item',
+        role: ['Admin'], //? To set multiple role: ['Admin', 'Client']
+        icon: 'circle',
+        url: 'management/user'
+      }
     ]
   },
   // Apps & Pages
