@@ -1,0 +1,271 @@
+<div class="content-wrapper container-xxl p-0">
+    <div class="content-body">
+      <!-- content-header component -->
+      <!-- <app-content-header [contentHeader]="contentHeader"></app-content-header> -->
+  
+      <!-- Kitchen Sink Datatables -->
+      <section id="ngx-datatable-kitchen-sink">
+        <div class="card">
+          <div class="card-header">
+            <div class="d-flex align-items-center">
+              <h4 class="card-title">User Monitoring</h4>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-12 mb-50">
+              <button
+                class="btn btn-primary ml-1"
+                (click)="addUser()"
+                rippleEffect
+              >
+                <i data-feather="plus" class="mr-0 mr-sm-1"></i>
+                <span class="d-none d-sm-inline-block">Add User</span>
+              </button>
+              <!-- <button
+                class="btn btn-outline-primary float-right mr-1"
+                (click)="toggleTableRows()"
+              >
+                Toggle Rows
+              </button> -->
+            </div>
+            <div class="col-md-6 col-12">
+              <div class="d-flex justify-content-between align-items-center m-1">
+                <label class="d-flex align-items-center"
+                  >Show
+                  <select
+                    class="form-control mx-25"
+                    [(ngModel)]="basicSelectedOption"
+                  >
+                    <option value="10">10</option>
+                    <option value="25">25</option>
+                    <option value="50">50</option>
+                    <option value="100">100</option>
+                  </select>
+                  entries</label
+                >
+              </div>
+            </div>
+            <div class="col-md-6 col-12 d-flex justify-content-md-end">
+              <div
+                class="d-flex align-items-center justify-content-end pr-1 pb-1 pl-1 pl-md-0 pb-md-0"
+              >
+                <label class="d-flex align-items-center"
+                  >Search<input
+                    type="search"
+                    placeholder="Search"
+                    class="form-control ml-25"
+                /></label>
+              </div>
+            </div>
+          </div>
+          <!-- ngx-datatable-row-details -->
+          <ngx-datatable
+            #tableRowDetails
+            class="bootstrap core-bootstrap"
+            [columnMode]="ColumnMode.force"
+            [headerHeight]="40"
+            [footerHeight]="50"
+            [rowHeight]="58"
+            [limit]="basicSelectedOption"
+            [rows]="kitchenSinkRows"
+            [scrollbarH]="true"
+          >
+            <!-- Row Detail Template -->
+            <!-- <ngx-datatable-row-detail [rowHeight]="50">
+              <ng-template
+                let-row="row"
+                let-expanded="expanded"
+                ngx-datatable-row-detail-template
+              >
+                <div class="ml-75 pl-5 pt-75">
+                  
+                </div>
+              </ng-template>
+            </ngx-datatable-row-detail> -->
+            <!-- <ngx-datatable-column
+              [width]="50"
+              [resizeable]="false"
+              [sortable]="false"
+              [draggable]="false"
+              [canAutoResize]="false"
+            >
+              <ng-template
+                let-row="row"
+                let-expanded="expanded"
+                ngx-datatable-cell-template
+              >
+                <a
+                  href="javascript:void(0)"
+                  class="text-body"
+                  [class.datatable-icon-right]="!expanded"
+                  [class.datatable-icon-down]="expanded"
+                  title="Expand/Collapse Row"
+                  (click)="rowDetailsToggleExpand(row)"
+                >
+                </a>
+              </ng-template>
+            </ngx-datatable-column> -->
+            
+            <ngx-datatable-column
+              name="NIK"
+              prop="app_name"
+              [width]="250"
+            >
+              <!-- <ng-template
+                ngx-datatable-cell-template
+                let-value="value"
+                let-rowIndex="rowIndex"
+              >
+                <div *ngIf="!enableEdit[rowIndex]">
+                  {{ value }}
+                </div>
+                <select
+                  *ngIf="enableEdit[rowIndex]"
+                  [value]="value"
+                  class="form-control form-control-sm"
+                >
+                  <option
+                    *ngFor="let category of categories"
+                    [ngValue]="category.name"
+                  >
+                    {{ category.value }}
+                  </option>
+                </select>
+              </ng-template> -->
+            </ngx-datatable-column>
+            
+            <ngx-datatable-column
+              name="Name"
+              prop="full_name"
+              [width]="280"
+              >
+            </ngx-datatable-column>
+
+            <ngx-datatable-column
+              name="Name"
+              prop="full_name"
+              [width]="280"
+              >
+            </ngx-datatable-column>
+            
+            <ngx-datatable-column
+              name="Email"
+              prop="email"
+              [width]="250"
+            >
+              <ng-template
+                ngx-datatable-cell-template
+                let-value="value"
+                let-rowIndex="rowIndex"
+              >
+                <div *ngIf="!enableEdit[rowIndex]">
+                  {{ value }}
+                </div>
+                <select
+                  *ngIf="enableEdit[rowIndex]"
+                  [value]="value"
+                  class="form-control form-control-sm"
+                >
+                  <option
+                    *ngFor="let category of categories"
+                    [ngValue]="category.name"
+                  >
+                    {{ category.value }}
+                  </option>
+                </select>
+              </ng-template>
+            </ngx-datatable-column>
+            
+            <ngx-datatable-column
+              name="Description"
+              prop="description"
+              [width]="280"
+              >
+            </ngx-datatable-column>
+
+            <ngx-datatable-column name="isAdmin" prop="status" [width]="120">
+              <ng-template
+                ngx-datatable-cell-template
+                let-value="value"
+                let-rowIndex="rowIndex"
+              >
+                <div *ngIf="!enableEdit[rowIndex]">
+                  {{ value }}
+                </div>
+                <select
+                  *ngIf="enableEdit[rowIndex]"
+                  [value]="value"
+                  class="form-control form-control-sm"
+                >
+                  <option value="1">true</option>
+                  <option value="0">false</option>
+                </select>
+              </ng-template>
+            </ngx-datatable-column>
+            <ngx-datatable-column name="Actions" [width]="120" [sortable]="false">
+              <ng-template
+                let-row="row"
+                let-expanded="expanded"
+                let-rowIndex="rowIndex"
+                ngx-datatable-cell-template
+              >
+                <!-- <a
+                  href="javascript:void(0)"
+                  class="text-body"
+                  [class.datatable-icon-down]="!expanded"
+                  [class.datatable-icon-up]="expanded"
+                  title="Expand/Collapse Row"
+                  (click)="rowDetailsToggleExpand(row)"
+                >
+                </a> -->
+                <button
+                  *ngIf="!enableEdit[rowIndex]"
+                  (click)="enableEditMethod(rowIndex)"
+                  class="btn btn-icon btn-flat-primary"
+                >
+                  <i
+                    data-feather="edit"
+                    class="text-primary cursor-pointer mr-50"
+                  ></i>
+                </button>
+                <button
+                  *ngIf="!enableEdit[rowIndex]"
+                  class="btn btn-icon btn-flat-danger"
+                >
+                  <i
+                    data-feather="trash-2"
+                    class="table-row-action edit-action mr-10"
+                  ></i>
+                </button>
+                <button
+                  *ngIf="enableEdit[rowIndex]"
+                  (click)="enableEdit[rowIndex] = false"
+                  class="btn btn-icon btn-flat-danger"
+                  ng-click="cancel()"
+                >
+                  <i
+                    data-feather="x"
+                    class="table-row-action edit-action mr-10"
+                  ></i>
+                </button>
+                <button
+                  *ngIf="enableEdit[rowIndex]"
+                  id="saveBtn"
+                  class="btn btn-icon btn-flat-success"
+                  (click)="sendEdit(rowIndex)"
+                  type="submit"
+                >
+                  <i
+                    data-feather="check"
+                    class="table-row-action edit-action mr-10"
+                  ></i>
+                </button>
+              </ng-template>
+            </ngx-datatable-column>
+          </ngx-datatable>
+          <!-- ngx-datatable-row-details -->
+        </div>
+      </section>
+      <!--/ Kitchen Sink Datatables -->
+    </div>
+  </div>
