@@ -140,40 +140,12 @@
               [width]="280"
               >
             </ngx-datatable-column>
-
-            <ngx-datatable-column
-              name="Name"
-              prop="full_name"
-              [width]="280"
-              >
-            </ngx-datatable-column>
             
             <ngx-datatable-column
               name="Email"
               prop="email"
               [width]="250"
             >
-              <ng-template
-                ngx-datatable-cell-template
-                let-value="value"
-                let-rowIndex="rowIndex"
-              >
-                <div *ngIf="!enableEdit[rowIndex]">
-                  {{ value }}
-                </div>
-                <select
-                  *ngIf="enableEdit[rowIndex]"
-                  [value]="value"
-                  class="form-control form-control-sm"
-                >
-                  <option
-                    *ngFor="let category of categories"
-                    [ngValue]="category.name"
-                  >
-                    {{ category.value }}
-                  </option>
-                </select>
-              </ng-template>
             </ngx-datatable-column>
             
             <ngx-datatable-column

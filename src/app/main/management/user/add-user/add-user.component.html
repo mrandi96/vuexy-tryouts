@@ -1,0 +1,134 @@
+<div class="modal-header">
+    <h4 class="modal-title" id="myModalLabel1">Add User</h4>
+    <button type="button" class="close" (click)="activeModal.close('Close click')" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body" tabindex="0" ngbAutofocus>
+    <form action="#">
+      <label>NIK </label>
+      <div class="form-group">
+        <input type="text" class="form-control" id="helpInputTop" placeholder="NIK@BTPN" />
+        
+      </div>
+      <div class="form-group">
+        <button type="button" class="btn btn-success" rippleEffect>Check</button>
+      </div>
+
+      <label>INFORMATION</label>
+      <div class="row">
+        <div class="col-md-6 col-12">
+            <div class="form-group">
+              <label for="full-name-column">Full Name</label>
+              <input
+                type="text"
+                id="full-name-column"
+                class="form-control"
+                placeholder="fullname"
+                name="fname-column"
+                disabled
+              />
+            </div>
+          </div>
+          <div class="col-md-6 col-12">
+            <div class="form-group">
+              <label for="role-column">Role</label>
+              <input
+                type="text"
+                id="role-column"
+                class="form-control"
+                placeholder="role"
+                name="role-column"
+                disabled
+              />
+            </div>
+          </div>
+          <div class="col-md-6 col-12">
+            <div class="form-group">
+              <label for="username-column">Username</label>
+              <input 
+                type="text" 
+                id="city-column" 
+                class="username-control" 
+                placeholder="username" 
+                name="username-column" 
+                disabled
+                />
+            </div>
+          </div>
+          <div class="col-md-6 col-12">
+            <div class="form-group">
+              <label for="nik-column">NIK</label>
+              <input
+                type="text"
+                id="nik-column"
+                class="form-control"
+                name="nik-column"
+                placeholder="nik"
+                disabled
+              />
+            </div>
+          </div>
+      </div>
+      <label>CONTACT INFO & BIO</label>
+      <div class="row">
+        <div class="col-12">
+          <div class="form-group">
+            <label for="email-icon">EMAIL</label>
+            <div class="input-group input-group-merge">
+              <input
+                type="email"
+                id="email-icon"
+                class="form-control"
+                name="email-icon"
+                placeholder="email"
+                disabled
+              />
+            </div>
+          </div>
+        </div>
+        <div class="col-12">
+          <div class="form-group">
+            <label for="description-icon">DESCRIPTION</label>
+            <div class="input-group input-group-merge">
+              <input
+                type="text"
+                id="description-icon"
+                class="form-control"
+                name="description-icon"
+                placeholder="description"
+                disabled
+              />
+            </div>
+          </div>
+        </div>
+        <div class="col-12">
+          <div class="form-group">
+            <label for="phone-icon">PHONE</label>
+            <div class="input-group input-group-merge">
+              <input
+                type="number"
+                id="phone-icon"
+                class="form-control"
+                name="phone-icon"
+                placeholder="phone"
+                disabled
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button
+      type="button"
+      class="btn btn-primary"
+      rippleEffect
+    >
+      <i data-feather="check-square" class="mr-0 mr-sm-0"></i>
+      Save
+    </button>
+  </div>
+  <!-- / Modal -->
+  
