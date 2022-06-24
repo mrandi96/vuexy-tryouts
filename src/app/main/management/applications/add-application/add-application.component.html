@@ -9,25 +9,37 @@
     <label>APPLICATIONS NAME </label>
     <div class="form-group">
       <ng-select
+        [searchable]="true"
         [items]="appsList"
         bindLabel="name"
         placeholder="Choose an application"
+        [(ngModel)]="selectedAppName"
+        name="appName"
       >
       </ng-select>
     </div>
     <label>CATEGORY</label>
     <div class="form-group">
-      <select class="form-control" id="category">
-        <option value="" selected disabled>Choose a Category</option>
-        <option *ngFor="let category of categories" [ngValue]="category.name">
-          {{ category.value }}
-        </option>
-      </select>
+      <ng-select
+        [clearable]="false"
+        [items]="categories"
+        bindLabel="name"
+        bindValue="value"
+        placeholder="Choose a category"
+        [(ngModel)]="selectedAppCategory"
+        name="appCategory"
+      >
+      </ng-select>
     </div>
   </form>
 </div>
 <div class="modal-footer">
-  <button type="button" class="btn btn-primary" rippleEffect>
+  <button
+    type="button"
+    class="btn btn-primary"
+    rippleEffect
+    (click)="onSave()"
+  >
     <i data-feather="check-square" class="mr-0 mr-sm-0"></i>
     Save
   </button>

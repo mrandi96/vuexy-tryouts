@@ -19,7 +19,7 @@
               rippleEffect
             >
               <i data-feather="plus" class="mr-0 mr-sm-1"></i>
-              <span class="d-none d-sm-inline-block">Add Applications</span>
+              <span class="d-none d-sm-inline-block">Add New Application</span>
             </button>
             <!-- <button
               class="btn btn-outline-primary float-right mr-1"
@@ -49,10 +49,10 @@
             <div
               class="d-flex align-items-center justify-content-end pr-1 pb-1 pl-1 pl-md-0 pb-md-0"
             >
-              <label class="d-flex align-items-center"
-                >Search<input
+              <label class="d-flex align-items-center">
+                <input
                   type="search"
-                  placeholder="Search"
+                  placeholder="Search..."
                   class="form-control ml-25"
                   (keyup)="filterUpdate($event)"
                   (search)="filterUpdate($event)"
@@ -109,12 +109,12 @@
           </ngx-datatable-column> -->
           <ngx-datatable-column
             name="Aplication Name"
-            prop="full_name"
+            prop="app_name"
             [width]="280"
           ></ngx-datatable-column>
           <ngx-datatable-column
             name="Application Category"
-            prop="email"
+            prop="app_category"
             [width]="250"
           >
             <ng-template
@@ -125,37 +125,57 @@
               <div *ngIf="!enableEdit[rowIndex]">
                 {{ value }}
               </div>
-              <select
+              <ng-select
+                style="min-width: 120px"
+                [clearable]="false"
                 *ngIf="enableEdit[rowIndex]"
-                [value]="value"
+                [items]="categories" 
+                bindLabel="name" 
+                bindValue="value" 
+                [(ngModel)]="kitchenSinkRows[rowIndex].app_category">
+              </ng-select>
+              <!-- <select
+                *ngIf="enableEdit[rowIndex]"
+                [(ngModel)]="kitchenSinkRows[rowIndex].app_category"
+                (ngModelChange)="onChange($event)"
                 class="form-control form-control-sm"
               >
                 <option
                   *ngFor="let category of categories"
-                  [ngValue]="category.name"
+                  [value]="category.value"
                 >
-                  {{ category.value }}
+                  {{ category.name }}
                 </option>
-              </select>
+              </select> -->
             </ng-template>
           </ngx-datatable-column>
-          <ngx-datatable-column name="isActive" prop="status" [width]="120">
+          <ngx-datatable-column name="Status" prop="isActive" [width]="120">
             <ng-template
               ngx-datatable-cell-template
               let-value="value"
               let-rowIndex="rowIndex"
             >
               <div *ngIf="!enableEdit[rowIndex]">
-                {{ value }}
+                {{ value ? 'Active' : 'Inactive' }}
               </div>
-              <select
+              <ng-select
+                style="min-width: 120px"
+                [clearable]="false"
                 *ngIf="enableEdit[rowIndex]"
-                [value]="value"
+                [items]="[{ display: 'Active', val: true }, { display: 'Inactive', val: false }]" 
+                bindLabel="display" 
+                bindValue="val" 
+                [(ngModel)]="kitchenSinkRows[rowIndex].isActive">
+              </ng-select>
+              <!-- <select
+                *ngIf="enableEdit[rowIndex]"
+                [(ngModel)]="kitchenSinkRows[rowIndex].isActive"
+                (ngModelChange)="onChange($event)"
                 class="form-control form-control-sm"
               >
-                <option value="1">true</option>
-                <option value="0">false</option>
-              </select>
+                <option value="true">Active</option>
+                <option value="false">Inactive</option>
+              </select> -->
             </ng-template>
           </ngx-datatable-column>
           <ngx-datatable-column name="Actions" [width]="120" [sortable]="false">
@@ -184,15 +204,31 @@
                   class="text-primary cursor-pointer mr-50"
                 ></i>
               </button>
+              
+              <!-- Delete Button -->
+              <ng-template #popContent>
+                <div class="d-flex">
+                  <p>Are you sure to delete this?</p>
+                  <button
+                    (click)="deleteRow(rowIndex)"
+                    class="btn btn-danger">Yes</button>
+                </div>
+              </ng-template>
               <button
                 *ngIf="!enableEdit[rowIndex]"
+                type="button"
                 class="btn btn-icon btn-flat-danger"
+                [ngbPopover]="popContent"
+                placement="top"
+                popoverTitle="Delete confirmation"
+                container="body"
               >
                 <i
                   data-feather="trash-2"
                   class="table-row-action edit-action mr-10"
                 ></i>
               </button>
+
               <button
                 *ngIf="enableEdit[rowIndex]"
                 (click)="enableEdit[rowIndex] = false"
@@ -208,7 +244,7 @@
                 *ngIf="enableEdit[rowIndex]"
                 id="saveBtn"
                 class="btn btn-icon btn-flat-success"
-                (click)="sendEdit(rowIndex)"
+                (click)="updateRow(rowIndex)"
                 type="submit"
               >
                 <i
