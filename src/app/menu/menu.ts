@@ -64,7 +64,7 @@ export const menu: CoreMenu[] = [
 
       {
         id: 'user',
-        title: 'User Monitoring',
+        title: 'User',
         // translate: 'MENU.DASHBOARD.ANALYTICS',
         type: 'item',
         role: ['Admin'], //? To set multiple role: ['Admin', 'Client']
